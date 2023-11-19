@@ -2,6 +2,9 @@
     text-align: center;
     font-family: Georgia;
     color: #000000; }
+body{
+  background-color: aqua;
+}
   
   .calendar {
     background: rgba(136, 178, 219, 0.589);
