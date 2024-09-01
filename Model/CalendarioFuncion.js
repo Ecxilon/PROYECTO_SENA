@@ -5,7 +5,7 @@ let currentDate = new Date();
 let currentDay = currentDate.getDate();
 let monthNumber = currentDate.getMonth();
 let currentYear = currentDate.getFullYear();
-
+//este es un comentario de prueba
 let dates = document.getElementById('dates');
 let month = document.getElementById('month');
 let year = document.getElementById('year');
