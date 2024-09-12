@@ -164,6 +164,11 @@ app.delete('/api/administradores/:id', (req, res) => {
     });
 });
 
+<<<<<<< HEAD
+=======
+// CRUD operations for "tipo_paquete" table
+
+>>>>>>> a952c2ad246fb99825bd2d77a80aaa6b4b42a105
 // Get all package types
 app.get('/api/tipo_paquetes', (req, res) => {
     db.query('SELECT * FROM tipo_paquete', (err, results) => {
@@ -182,7 +187,11 @@ app.get('/api/tipo_paquetes/:id', (req, res) => {
         if (err) {
             res.status(500).send(err);
         } else {
+<<<<<<< HEAD
             res.json(result[0]); // Return the first (and only) result
+=======
+            res.json(result);
+>>>>>>> a952c2ad246fb99825bd2d77a80aaa6b4b42a105
         }
     });
 });
@@ -190,6 +199,7 @@ app.get('/api/tipo_paquetes/:id', (req, res) => {
 // Create a new package type
 app.post('/api/tipo_paquetes', (req, res) => {
     const { tipo } = req.body;
+<<<<<<< HEAD
     db.query('INSERT INTO tipo_paquete (tipo) VALUES (?)',
         [tipo], (err, result) => {
             if (err) {
@@ -198,12 +208,22 @@ app.post('/api/tipo_paquetes', (req, res) => {
                 res.json({ id: result.insertId });
             }
         });
+=======
+    db.query('INSERT INTO tipo_paquete (tipo) VALUES (?)', [tipo], (err, result) => {
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            res.json({ id: result.insertId });
+        }
+    });
+>>>>>>> a952c2ad246fb99825bd2d77a80aaa6b4b42a105
 });
 
 // Update a package type
 app.put('/api/tipo_paquetes/:id', (req, res) => {
     const id = req.params.id;
     const { tipo } = req.body;
+<<<<<<< HEAD
     db.query('UPDATE tipo_paquete SET tipo = ? WHERE id = ?',
         [tipo, id], (err, result) => {
             if (err) {
@@ -212,6 +232,15 @@ app.put('/api/tipo_paquetes/:id', (req, res) => {
                 res.json(result);
             }
         });
+=======
+    db.query('UPDATE tipo_paquete SET tipo = ? WHERE id = ?', [tipo, id], (err, result) => {
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            res.json(result);
+        }
+    });
+>>>>>>> a952c2ad246fb99825bd2d77a80aaa6b4b42a105
 });
 
 // Delete a package type
@@ -226,6 +255,7 @@ app.delete('/api/tipo_paquetes/:id', (req, res) => {
     });
 });
 
+<<<<<<< HEAD
 
 
 
@@ -295,6 +325,8 @@ app.delete('/api/paquetes/:id', (req, res) => {
 });
 
 
+=======
+>>>>>>> a952c2ad246fb99825bd2d77a80aaa6b4b42a105
 // Get all residents
 app.get('/api/residentes', (req, res) => {
     db.query('SELECT * FROM residentes', (err, results) => {
@@ -313,16 +345,26 @@ app.get('/api/residentes/:id', (req, res) => {
         if (err) {
             res.status(500).send(err);
         } else {
+<<<<<<< HEAD
             res.json(result[0]); // Return the first (and only) result
+=======
+            res.json(result);
+>>>>>>> a952c2ad246fb99825bd2d77a80aaa6b4b42a105
         }
     });
 });
 
 // Create a new resident
 app.post('/api/residentes', (req, res) => {
+<<<<<<< HEAD
     const { nombres, apellidos, telefono, cedula, contrasena, numero_apartamento } = req.body;
     db.query('INSERT INTO residentes (nombres, apellidos, telefono, cedula, contrasena, numero_apartamento) VALUES (?, ?, ?, ?, ?, ?)',
         [nombres, apellidos, telefono, cedula, contrasena, numero_apartamento], (err, result) => {
+=======
+    const { nombres, apellidos, telefono, cedula, contrasena } = req.body;
+    db.query('INSERT INTO residentes (nombres, apellidos, telefono, cedula, contrasena) VALUES (?, ?, ?, ?, ?)',
+        [nombres, apellidos, telefono, cedula, contrasena], (err, result) => {
+>>>>>>> a952c2ad246fb99825bd2d77a80aaa6b4b42a105
             if (err) {
                 res.status(500).send(err);
             } else {
@@ -334,9 +376,15 @@ app.post('/api/residentes', (req, res) => {
 // Update a resident
 app.put('/api/residentes/:id', (req, res) => {
     const id = req.params.id;
+<<<<<<< HEAD
     const { nombres, apellidos, telefono, cedula, contrasena, numero_apartamento } = req.body;
     db.query('UPDATE residentes SET nombres = ?, apellidos = ?, telefono = ?, cedula = ?, contrasena = ?, numero_apartamento = ? WHERE id = ?',
         [nombres, apellidos, telefono, cedula, contrasena, numero_apartamento, id], (err, result) => {
+=======
+    const { nombres, apellidos, telefono, cedula, contrasena } = req.body;
+    db.query('UPDATE residentes SET nombres = ?, apellidos = ?, telefono = ?, cedula = ?, contrasena = ? WHERE id = ?',
+        [nombres, apellidos, telefono, cedula, contrasena, id], (err, result) => {
+>>>>>>> a952c2ad246fb99825bd2d77a80aaa6b4b42a105
             if (err) {
                 res.status(500).send(err);
             } else {
@@ -357,7 +405,10 @@ app.delete('/api/residentes/:id', (req, res) => {
     });
 });
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> a952c2ad246fb99825bd2d77a80aaa6b4b42a105
 // Get all owners
 app.get('/api/propietarios', (req, res) => {
     db.query('SELECT * FROM propietarios', (err, results) => {

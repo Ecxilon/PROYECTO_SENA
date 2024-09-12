@@ -4,6 +4,7 @@ import { TextField, Button, Container, Typography, Box } from '@mui/material';
 import { createResidente, getResidente, updateResidente } from '../api/apiResidentes';
 
 const ResidenteForm = () => {
+<<<<<<< HEAD
     const [residente, setResidente] = useState({ 
         nombres: '', 
         apellidos: '', 
@@ -12,6 +13,9 @@ const ResidenteForm = () => {
         contrasena: '',
         numero_apartamento: '' // Agregado el nuevo campo
     });
+=======
+    const [residente, setResidente] = useState({ nombres: '', apellidos: '', telefono: '', cedula: '', contrasena: '' });
+>>>>>>> a952c2ad246fb99825bd2d77a80aaa6b4b42a105
     const { id } = useParams();
     const navigate = useNavigate();
     const isEdit = Boolean(id);
@@ -83,6 +87,7 @@ const ResidenteForm = () => {
                     fullWidth
                     margin="normal"
                 />
+<<<<<<< HEAD
                 <TextField
                     label="Número de Apartamento"
                     name="numero_apartamento"
@@ -91,6 +96,8 @@ const ResidenteForm = () => {
                     fullWidth
                     margin="normal"
                 />
+=======
+>>>>>>> a952c2ad246fb99825bd2d77a80aaa6b4b42a105
                 <Button type="submit" variant="contained" color="primary">
                     {isEdit ? 'Guardar Cambios' : 'Agregar'}
                 </Button>
