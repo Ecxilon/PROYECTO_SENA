@@ -34,16 +34,9 @@ const ResidenteList = () => {
         { field: 'telefono', headerName: 'Teléfono', width: 150 },
         { field: 'cedula', headerName: 'Cédula', width: 150 },
         { field: 'contrasena', headerName: 'Contraseña', width: 150 },
-<<<<<<< HEAD
-        { field: 'numero_apartamento', headerName: 'Número de Apartamento', width: 180 }, // Nueva columna
-        {
-            field: 'actions',
-            headerName: 'Acciones',
-=======
         {
             field: 'actions',
             headerName: 'Actions',
->>>>>>> a952c2ad246fb99825bd2d77a80aaa6b4b42a105
             width: 150,
             renderCell: (params) => (
                 <Box display="flex" justifyContent="space-between" width="100%">

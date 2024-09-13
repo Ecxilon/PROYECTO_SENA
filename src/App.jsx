@@ -14,11 +14,8 @@ import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import NavBar from './components/NavBar';
 import theme from './theme';
-<<<<<<< HEAD
 import PaqueteForm from './components/PaqueteForm';
 import PaqueteList from './components/PaqueteList';
-=======
->>>>>>> a952c2ad246fb99825bd2d77a80aaa6b4b42a105
 
 function App() {
     const [token, setToken] = useState(localStorage.getItem('token'));
@@ -49,12 +46,9 @@ function App() {
                     <Route path="/tipo_paquetes" element={<PrivateRoute><TipoPaqueteList /></PrivateRoute>} />
                     <Route path="/tipo_paquetes/add" element={<PrivateRoute><TipoPaqueteForm /></PrivateRoute>} />
                     <Route path="/tipo_paquetes/edit/:id" element={<PrivateRoute><TipoPaqueteForm /></PrivateRoute>} />
-<<<<<<< HEAD
                     <Route path="/paquetes" element={<PrivateRoute><PaqueteList /></PrivateRoute>} />
                     <Route path="/paquetes/add" element={<PrivateRoute><PaqueteForm /></PrivateRoute>} />
                     <Route path="/paquetes/edit/:id" element={<PrivateRoute><PaqueteForm /></PrivateRoute>} />
-=======
->>>>>>> a952c2ad246fb99825bd2d77a80aaa6b4b42a105
                     <Route path="/residentes" element={<PrivateRoute><ResidenteList /></PrivateRoute>} />
                     <Route path="/residentes/add" element={<PrivateRoute><ResidenteForm /></PrivateRoute>} />
                     <Route path="/residentes/edit/:id" element={<PrivateRoute><ResidenteForm /></PrivateRoute>} />

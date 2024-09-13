@@ -38,7 +38,6 @@ const Dashboard = () => {
                 </Grid>
                 <Grid item xs={12} sm={6} md={4}>
                     <Paper sx={{ padding: '20px', textAlign: 'center', backgroundColor: 'primary.main', color: 'secondary.main' }}>
-<<<<<<< HEAD
                         <LocalShippingIcon sx={{ fontSize: '40px', color: 'secondary.main' }} />
                         <Typography variant="h6" gutterBottom>
                              Paquete
@@ -52,8 +51,6 @@ const Dashboard = () => {
                 </Grid>
                 <Grid item xs={12} sm={6} md={4}>
                     <Paper sx={{ padding: '20px', textAlign: 'center', backgroundColor: 'primary.main', color: 'secondary.main' }}>
-=======
->>>>>>> a952c2ad246fb99825bd2d77a80aaa6b4b42a105
                         <PeopleIcon sx={{ fontSize: '40px', color: 'secondary.main' }} />
                         <Typography variant="h6" gutterBottom>
                             Residentes

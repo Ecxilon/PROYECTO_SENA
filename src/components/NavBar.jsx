@@ -21,10 +21,7 @@ const NavBar = () => {
                 <Button color="inherit" onClick={() => navigate('/tipo_paquetes')}>Tipos de Paquete</Button>
                 <Button color="inherit" onClick={() => navigate('/residentes')}>Residentes</Button>
                 <Button color="inherit" onClick={() => navigate('/propietarios')}>Propietarios</Button>
-<<<<<<< HEAD
                 <Button color="inherit" onClick={() => navigate('/paquetes')}>Paquete</Button>
-=======
->>>>>>> a952c2ad246fb99825bd2d77a80aaa6b4b42a105
                 <Button color="inherit" onClick={handleLogout}>Salir</Button>
             </Toolbar>
         </AppBar>
