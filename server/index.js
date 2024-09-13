@@ -199,6 +199,68 @@ app.delete('/api/tipo_paquetes/:id', (req, res) => {
     });
 });
 
+// CRUD PAQUETE
+
+// Get all package 
+app.get('/api/paquete', (req, res) => {
+    db.query('SELECT * FROM paquete', (err, results) => {
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            res.json(results);
+        }
+    });
+});
+
+// Get a single package type by ID
+app.get('/api/paquete/:id', (req, res) => {
+    const id = req.params.id;
+    db.query('SELECT * FROM paquete WHERE id = ?', [id], (err, result) => {
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            res.json(result);
+        }
+    });
+});
+
+// Create a new package type
+app.post('/api/paquete', (req, res) => {
+    const { tipo } = req.body;
+    db.query('INSERT INTO paquete (tipo) VALUES (?)', [tipo], (err, result) => {
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            res.json({ id: result.insertId });
+        }
+    });
+});
+
+// Update a package type
+app.put('/api/paquete/:id', (req, res) => {
+    const id = req.params.id;
+    const { tipo } = req.body;
+    db.query('UPDATE paquete SET tipo = ? WHERE id = ?', [tipo, id], (err, result) => {
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            res.json(result);
+        }
+    });
+});
+
+// Delete a package type
+app.delete('/api/paquete/:id', (req, res) => {
+    const id = req.params.id;
+    db.query('DELETE FROM paquete WHERE id = ?', [id], (err, result) => {
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            res.json(result);
+        }
+    });
+});
+
 // Get all residents
 app.get('/api/residentes', (req, res) => {
     db.query('SELECT * FROM residentes', (err, results) => {
