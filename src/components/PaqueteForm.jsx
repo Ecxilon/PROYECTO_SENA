@@ -47,11 +47,13 @@ const PaqueteForm = () => {
             } else {
                 await createPaquete(paquete);
             }
-            navigate('/paquetes'); // Redirige a la lista de paquetes
+            navigate('/paquetes'); // Redirige a la lista de paquetes solo si la operación es exitosa
         } catch (error) {
             console.error('Error submitting form:', error);
+            alert('Error al insertar el paquete. Por favor, inténtalo de nuevo.');
         }
     };
+    
 
     return (
         <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2 }}>

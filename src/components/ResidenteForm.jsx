@@ -4,7 +4,14 @@ import { TextField, Button, Container, Typography, Box } from '@mui/material';
 import { createResidente, getResidente, updateResidente } from '../api/apiResidentes';
 
 const ResidenteForm = () => {
-    const [residente, setResidente] = useState({ nombres: '', apellidos: '', telefono: '', cedula: '', contrasena: '' });
+    const [residente, setResidente] = useState({
+        nombres: '',
+        apellidos: '',
+        telefono: '',
+        cedula: '',
+        contrasena: '',
+        numero_apartamento: '' // Nuevo campo
+    });
     const { id } = useParams();
     const navigate = useNavigate();
     const isEdit = Boolean(id);
@@ -72,6 +79,14 @@ const ResidenteForm = () => {
                     name="contrasena"
                     type="password"
                     value={residente.contrasena}
+                    onChange={handleChange}
+                    fullWidth
+                    margin="normal"
+                />
+                <TextField
+                    label="Número de Apartamento"
+                    name="numero_apartamento"
+                    value={residente.numero_apartamento}
                     onChange={handleChange}
                     fullWidth
                     margin="normal"

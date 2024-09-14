@@ -226,15 +226,24 @@ app.get('/api/paquete/:id', (req, res) => {
 
 // Create a new package type
 app.post('/api/paquete', (req, res) => {
-    const { tipo } = req.body;
-    db.query('INSERT INTO paquete (tipo) VALUES (?)', [tipo], (err, result) => {
+    const { tipo_paquete_id, residentes_cedula } = req.body;
+
+    // Verifica los valores recibidos
+    console.log('Tipo recibido:', tipo_paquete_id);
+    console.log('Cédula recibida:', residentes_cedula);
+
+    // Realiza la consulta SQL
+    db.query('INSERT INTO paquete (tipo_paquete_id, residentes_cedula) VALUES (?, ?)', [tipo_paquete_id, residentes_cedula], (err, result) => {
         if (err) {
-            res.status(500).send(err);
+            console.error('Error en la consulta SQL:', err);
+            res.status(500).send('Error al insertar el paquete');
         } else {
             res.json({ id: result.insertId });
         }
     });
 });
+
+
 
 // Update a package type
 app.put('/api/paquete/:id', (req, res) => {
@@ -272,46 +281,57 @@ app.get('/api/residentes', (req, res) => {
     });
 });
 
-// Get a single resident by ID
+// Obtener un residente por ID
 app.get('/api/residentes/:id', (req, res) => {
     const id = req.params.id;
     db.query('SELECT * FROM residentes WHERE id = ?', [id], (err, result) => {
         if (err) {
             res.status(500).send(err);
         } else {
-            res.json(result);
+            res.json(result[0]); // Devuelve el primer elemento del array de resultados
         }
     });
 });
 
-// Create a new resident
+
+// Crear un nuevo residente
 app.post('/api/residentes', (req, res) => {
-    const { nombres, apellidos, telefono, cedula, contrasena } = req.body;
-    db.query('INSERT INTO residentes (nombres, apellidos, telefono, cedula, contrasena) VALUES (?, ?, ?, ?, ?)',
-        [nombres, apellidos, telefono, cedula, contrasena], (err, result) => {
+    const { nombres, apellidos, telefono, cedula, contrasena, numero_apartamento } = req.body;
+    console.log('Datos recibidos:', req.body); // Verifica que `numero_apartamento` esté presente
+
+    db.query(
+        'INSERT INTO residentes (nombres, apellidos, telefono, cedula, contrasena, numero_apartamento) VALUES (?, ?, ?, ?, ?, ?)',
+        [nombres, apellidos, telefono, cedula, contrasena, numero_apartamento],
+        (err, result) => {
             if (err) {
-                res.status(500).send(err);
+                console.error('Error en la consulta SQL:', err); // Agrega más detalles si es necesario
+                res.status(500).send('Error al insertar el residente');
             } else {
                 res.json({ id: result.insertId });
             }
-        });
+        }
+    );
 });
 
-// Update a resident
+
+// Actualizar un residente
 app.put('/api/residentes/:id', (req, res) => {
     const id = req.params.id;
-    const { nombres, apellidos, telefono, cedula, contrasena } = req.body;
-    db.query('UPDATE residentes SET nombres = ?, apellidos = ?, telefono = ?, cedula = ?, contrasena = ? WHERE id = ?',
-        [nombres, apellidos, telefono, cedula, contrasena, id], (err, result) => {
+    const { nombres, apellidos, telefono, cedula, contrasena, numero_apartamento } = req.body;
+    db.query(
+        'UPDATE residentes SET nombres = ?, apellidos = ?, telefono = ?, cedula = ?, contrasena = ?, numero_apartamento = ? WHERE id = ?',
+        [nombres, apellidos, telefono, cedula, contrasena, numero_apartamento, id],
+        (err, result) => {
             if (err) {
                 res.status(500).send(err);
             } else {
                 res.json(result);
             }
-        });
+        }
+    );
 });
 
-// Delete a resident
+// Eliminar un residente
 app.delete('/api/residentes/:id', (req, res) => {
     const id = req.params.id;
     db.query('DELETE FROM residentes WHERE id = ?', [id], (err, result) => {
@@ -322,6 +342,7 @@ app.delete('/api/residentes/:id', (req, res) => {
         }
     });
 });
+
 
 // Get all owners
 app.get('/api/propietarios', (req, res) => {

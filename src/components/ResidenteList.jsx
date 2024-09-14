@@ -33,7 +33,7 @@ const ResidenteList = () => {
         { field: 'apellidos', headerName: 'Apellidos', width: 150 },
         { field: 'telefono', headerName: 'Teléfono', width: 150 },
         { field: 'cedula', headerName: 'Cédula', width: 150 },
-        { field: 'contrasena', headerName: 'Contraseña', width: 150 },
+        { field: 'numero_apartamento', headerName: 'Número de Apartamento', width: 200 }, // Nueva columna
         {
             field: 'actions',
             headerName: 'Actions',
